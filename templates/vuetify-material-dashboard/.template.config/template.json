@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Joshua Williams",
+  "classifications": [ "Formula", "Template" ], 
+  "identity": "Formula.Client.VuetifyDashboard",
+  "name": "Formula Framework - (Client) - Vuetify Dashboard",
+  "shortName": "formula-client-vuetifydashboard",
+  "tags": {
+    "language": "JavaScript",
+    "type": "project"
+  },
+  "sourceName": "vuetify-material-dashboard",
+  "preferNameDirectory": true,
+  "symbols": {
+    "sitename": {
+      "type": "parameter",
+      "defaultValue": "MySite",
+      "replaces": "SiteName"
+    },
+    "rename": {
+      "type": "derived",
+      "valueSource": "sitename",
+      "valueTransform": "ValueAfterLastDot",
+      "fileRename": "SiteName",
+      "replaces": "SiteName"
+    }
+  },
+  "forms": {
+    "ValueAfterLastDot": {
+      "identifier": "replace",
+      "pattern": "^.*\\.(?=[^\\.]+$)",
+      "replacement": ""
+    }
+  }
+}

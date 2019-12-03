@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Joshua Williams",
+  "classifications": [ "Formula", "Template" ], 
+  "identity": "Formula.Client.Vuetify",
+  "name": "Formula Framework Client - Vuetify",
+  "shortName": "formula-client-vuetify",
+  "tags": {
+    "language": "JavaScript",
+    "type": "project"
+  },
+  "sourceName": "vuetify",
+  "preferNameDirectory": true,
+  "symbols": {
+    "sitename": {
+      "type": "parameter",
+      "defaultValue": "my-app",
+      "replaces": "my-app"
+    },
+    "rename": {
+      "type": "derived",
+      "valueSource": "sitename",
+      "valueTransform": "ValueAfterLastDot",
+      "fileRename": "my-app",
+      "replaces": "my-app"
+    }
+  },
+  "forms": {
+    "ValueAfterLastDot": {
+      "identifier": "replace",
+      "pattern": "^.*\\.(?=[^\\.]+$)",
+      "replacement": ""
+    }
+  }
+}

@@ -13,7 +13,7 @@ function listCommands() {
 }
 
 function install() {
-    dotnet new -i ./templates/vuetify-material-dashboard/
+    dotnet new -i ./templates/vuetify/
     echo ""
     echo ""
     echo "==========================="
@@ -21,12 +21,12 @@ function install() {
     echo "==========================="
     echo ""
     echo "Examples"
-    echo "dotnet new formula-client-vuetifydashboard -n HelloWorld.Site -s MySite"
+    echo "dotnet new formula-client-vuetify -n HelloWorld.Site -s my-app"
     echo "cd HelloWorld.Site"
 }
 
 function uninstall() {
-    uninstallCmd=$(dotnet new -u | grep vuetify-material-dashboard | grep dotnet)
+    uninstallCmd=$(dotnet new -u | grep vuetify | grep dotnet)
     eval "$uninstallCmd"
     echo "==========================="
     echo "Uninstalled"

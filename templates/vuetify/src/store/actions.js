@@ -6,16 +6,10 @@ export default {
   login ({ commit }, userData) {
     return new Promise((resolve, reject) => {
       commit('auth_request')
-      commit('auth_success', { 'token': 'asdf', 'user': userData })      
-      resolve({'msg': 'done'})
-      var j = reject;
-      var i = j;
-      j = i;
-      /*
-      axios.post('/auth', { username: userData.username, password: userData.password })
+      axios.post('https://localhost:5001/account/login', { userName: userData.username, password: userData.password })
         .then(response => {
-          const token = response.data.access_token
-          const user = response.data.username
+          const token = response.data.data.userName
+          const user = response.data.data.userName
           console.log(response)
           // storing jwt in localStorage. https cookie is safer place to store
           localStorage.setItem('token', token)
@@ -24,6 +18,11 @@ export default {
           // mutation to change state properties to the values passed along
           commit('auth_success', { token, user })
           resolve(response)
+
+          axios.get('https://localhost:5001/todo')
+          .then( response => {
+            console.log(response);
+          });
         })
         .catch(err => {
           console.log('login error')
@@ -31,7 +30,6 @@ export default {
           localStorage.removeItem('token')
           reject(err)
         })
-        */
     })
   },
   logout ({ commit }) {

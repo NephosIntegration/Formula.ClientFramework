@@ -70,6 +70,8 @@
 </template>
 
 <script>
+import Oidc from 'oidc-client';
+
 export default {
   data: function () {
     return {
@@ -85,6 +87,7 @@ export default {
   // Sends action to Vuex that will log you in and redirect to the dash otherwise, error
   methods: {
     login: function () {
+      
       let username = this.username
       let password = this.password
       this.$store.dispatch('login', { username, password })
